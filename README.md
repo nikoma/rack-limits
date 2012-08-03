@@ -5,8 +5,8 @@ This is [Rack][] middleware that provides logic for rate-limiting incoming
 HTTP requests to Rack applications. You can use `Rack::Limits` with any
 Ruby web framework based on Rack, including with Ruby on Rails 3.0 and with
 Sinatra.
-This is a fork of rack-throttle as the original authors are very busy on other projects since quite some time (yes, I asked Arto). I will try
-to get all pull requests in and will spend some time with the project as I am using it in almost all projects I am working on.
+This is a fork of rack-throttle as the original authors are very busy on other projects (yes, I asked Arto) and I will attempt
+to get all pull requests in. I will spend some time with the project as I am using it in almost all projects I am currently working on.
 
 
 * <http://github.com/nikoma/rack-limits>
@@ -14,7 +14,7 @@ to get all pull requests in and will spend some time with the project as I am us
 Features
 --------
 
-* Limitss a Rack application by enforcing a minimum time interval between
+* Limits a Rack application by enforcing a minimum time interval between
   subsequent HTTP requests from a particular client, as well as by defining
   a maximum number of allowed HTTP requests per a given time period (hourly
   or daily).
