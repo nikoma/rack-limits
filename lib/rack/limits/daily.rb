@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require 'date'
+
 module Rack; module Limits
   ##
   # This rate limiter strategy throttles the application by defining a
@@ -27,7 +31,7 @@ module Rack; module Limits
 
     ##
     def max_per_day
-      @max_per_hour ||= options[:max_per_day] || options[:max] || 86_400
+      @max_per_day ||= options[:max_per_day] || options[:max] || 86_400
     end
 
     alias_method :max_per_window, :max_per_day
@@ -39,6 +43,13 @@ module Rack; module Limits
     # @return [String]
     def cache_key(request)
       [super, Time.now.strftime('%Y-%m-%d')].join(':')
+    end
+
+    ##
+    # @return [Time]
+    def window_ends_at
+      tomorrow = Date.today.next_day
+      Time.new(tomorrow.year, tomorrow.month, tomorrow.day)
     end
   end
 end; end

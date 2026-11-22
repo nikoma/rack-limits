@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rack; module Limits
   ##
   # This rate limiter strategy throttles the application by defining a
@@ -39,6 +41,13 @@ module Rack; module Limits
     # @return [String]
     def cache_key(request)
       [super, Time.now.strftime('%Y-%m-%dT%H')].join(':')
+    end
+
+    ##
+    # @return [Time]
+    def window_ends_at
+      now = Time.now
+      Time.new(now.year, now.month, now.day, now.hour) + 3600
     end
   end
 end; end

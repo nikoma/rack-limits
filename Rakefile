@@ -1,8 +1,8 @@
-#!/usr/bin/env ruby
-$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), 'lib')))
-require 'rubygems'
-begin
-  require 'rakefile'
-rescue LoadError => e
-end
-require 'rack/limits'
+# frozen_string_literal: true
+
+require 'bundler/gem_tasks'
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec)
+
+task default: :spec

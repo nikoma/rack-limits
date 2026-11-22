@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 module Rack; module Limits
   module VERSION
     MAJOR = 0
-    MINOR = 3
+    MINOR = 4
     TINY  = 0
     EXTRA = nil
 
-    STRING = [MAJOR, MINOR, TINY].join('.')
-    STRING << "-#{EXTRA}" if EXTRA
+    STRING = [MAJOR, MINOR, TINY, EXTRA].compact.join('.').freeze
 
     ##
     # @return [String]
